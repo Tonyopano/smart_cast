@@ -6,6 +6,7 @@ export default defineSchema({
     podcasts: defineTable({
         audioStorageId: v.optional(v.id('_storage')),
         user: v.id('users'),
+        podcastTitle: v.string(),
         podcastDescription: v.string(),
         audioUrl: v.optional(v.string()),
         imageUrl: v.optional(v.string()),
