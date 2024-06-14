@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 import { generateUploadUrl } from "@/convex/files";
 import { useToast } from "@/components/ui/use-toast";
 
-import { useUploadFiles, useUploadFiles as useUploadFilesFromLibrary } from "@xixixao/uploadstuff/react";
+import { useUploadFiles } from "@xixixao/uploadstuff/react";
 
 const useGeneratePodcast = ({
   setAudio,
@@ -50,7 +50,7 @@ const useGeneratePodcast = ({
       const file = new File([blob], fileName, { type: "audio/mpeg" });
 
       const uploaded = await startUpload([file]);
-      const storageId = (uploaded[0].response as any).storage;
+      const storageId = (uploaded[0].response as any).storageId;
 
       setAudioStorageId(storageId);
 

@@ -10,18 +10,16 @@ const openai = new OpenAI({
 
 export const generateAudioAction = action({
   args: { input: v.string(), voice: v.string() },
-  handler: async (_, { voice, input}) => {
+  handler: async (_, { voice, input }) => {
     // const response = await getPocastAudio
     const mp3 = await openai.audio.speech.create({
       model: "tts-1",
-      voice: voice as SpeechCreateParams['voice'],
+      voice: voice as SpeechCreateParams["voice"],
       input,
     });
-    
-    const buffer = Buffer.from(await mp3.arrayBuffer());
-    
 
-    // optionally return a value
+    const buffer = await mp3.arrayBuffer();
+
     return buffer;
   },
 });
