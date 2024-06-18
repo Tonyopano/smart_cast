@@ -26,7 +26,7 @@ const useGeneratePodcast = ({
 
   const getPodcastAudio = useAction(api.openai.generateAudioAction);
 
-  const getAudioUrl = useMutation(api.podcasts.getUrl);
+  const getImageUrl = useMutation(api.podcasts.getUrl);
 
   const generatePodcast = async () => {
     setIsGenerating(true);
@@ -97,7 +97,7 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
         <Button
           type="submit"
           className="text-16 bg-orange-1 py-4 font-bold text-white-1"
-          onClick={generatePodcast}  
+          onClick={generatePodcast}
         >
           {isGenerating ? (
             <>
